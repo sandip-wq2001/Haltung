@@ -1,0 +1,37 @@
+STEP 01 — REPRODUCIBLE INPUT-COVERAGE RUN
+
+Repository root:
+  /Users/sandip.sarraf/Haltung
+
+Runtime:
+  Node.js v24.14.0
+
+Commands:
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test eval/analyze-input-coverage.test.mjs
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node eval/analyze-input-coverage.mjs
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1165,1050 --screenshot=/Users/sandip.sarraf/Haltung/docs/research/participant-evaluation/01-data-quality/coverage-heatmap.png file:///Users/sandip.sarraf/Haltung/docs/research/participant-evaluation/01-data-quality/coverage-heatmap.svg
+
+Verification:
+  7 tests passed; 0 failed.
+  10 frozen sessions analysed.
+  300 detailed rows, 60 P1–P4 result rows, and 10 session-summary rows written.
+  P1–P4 primary identities and the separate Author pair are validated fail-closed.
+  A fresh independent temporary run reproduced all three CSV files and the SVG byte-for-byte.
+
+Analysis identity (SHA-256):
+  a21d00084b9c64d925c4b8123534a41c526cf073fadb69f5b90d9b65e952b8ef  eval/analyze-input-coverage.mjs
+  b3a4abda6d8b3fb3d1059ea76ad3256b287c6843e171a22574f230698d1bdd4c  eval/analyze-input-coverage.test.mjs
+  1fe702146497961fca7b26d833e869dba2b0b894af924985ca5603243239d027  eval/canonical-script.mjs
+  d48c7e9d00f0cab4d33eaf1334bd25f7bdfa8551624ddebe7c2ffc9d82fb72cf  eval/evaluation-manifest.json
+  8ceb3ce45a9edcbf4ee1bb9004d9c342350ec51aca71437e510e4dcf4c2fc361  docs/research/participant-evaluation/00-dataset-freeze/file-checksums.txt
+
+Output identity (SHA-256):
+  21c8e2003cb46766e35296366ae10e7a7ddbfd915a87cbac72dea1a046195596  segment-coverage.csv
+  0ded9318541adc0f91b41984e5d5f4982da1e1eba939bb9afe56103d8f9c2e77  results.csv
+  bdc3d720080e3c91a18bc84e1a53ea110e66f476dc19706fbb243cd6ee639d6a  session-summary.csv
+  db185f8ee5c69bb388dcf7a81968edc12b15402bbefeee61f2097ac99cbcd476  coverage-heatmap.svg
+  391644d1b5d67cbd7df9f33ae7ab9b84c816431a2bfc88c53f4d7bf206d17e7f  coverage-heatmap.png
+  066fa9a65101fb1e2236fb310008dd712ebc80c93a7bb52e60bb1c9e668ee8cc  input-coverage.xlsx
+
+The XLSX is a non-normative, formatted convenience copy of the three CSV tables, exported with
+@oai/artifact-tool 2.8.6+. The CSV files remain the machine-readable source of truth.

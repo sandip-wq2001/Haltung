@@ -1,0 +1,5 @@
+recordingId,sha256,bytes,sourceParticipantId,condition,schemaVersion,scriptId,disposition,reason
+excluded-7e4c362ab2a7,7e4c362ab2a7b900e34b5eefe138218e99147094674b17dd77ffbd93c116adba,10002747,P1,B_offaxis,6,haltung-session-v8,EXCLUDED,Superseded by the explicitly redone P1 off-axis session with the paired 0.65 m screen distance.
+excluded-de451a6e2479,de451a6e2479e1a507b6c540e99079d32b0d690b0910df80b16c4936c8d33106,9668346,Auth,A_frontal,6,haltung-session-v7,EXCLUDED,Superseded Author pilot using haltung-session-v7; not comparable with the final v8 protocol.
+excluded-e21a5239d159,e21a5239d1595afc5f89bab4f167003283531bb2af48e21ff5808250b8a53458,23042652,Auth,A_frontal,6,haltung-session-v7,EXCLUDED,Superseded Author pilot using haltung-session-v7; not comparable with the final v8 protocol.
+excluded-e195f43e5d90,e195f43e5d904f121e098035505f7ffbd85a4dfffd6cd7a96fc0e06fc54c07b9,18250044,Author,A_frontal,4,haltung-session-v5,EXCLUDED,Superseded Author pilot using schema 4 / haltung-session-v5 and containing removed date fields.

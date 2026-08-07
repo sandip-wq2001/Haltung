@@ -1,0 +1,333 @@
+<main class="threshold-page">
+  <a mat-button routerLink="/" class="back-link">Back to home</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Threshold instrument (author-side)</p>
+    <h1>Threshold finding</h1>
+    <p>
+      The app speaks each pose, waits while you get into it, then records only the held pose.
+      Repeat across camera positions to see whether one fixed threshold can cover them all.
+    </p>
+  </header>
+
+  <video #video class="preview" playsinline muted [class.hidden]="phase() !== 'running'"></video>
+
+  @if (phase() === 'setup') {
+    <section class="setup">
+      <form class="setup-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Person</mat-label>
+          <input
+            matInput
+            required
+            autocomplete="off"
+            name="personId"
+            [ngModel]="personId()"
+            (ngModelChange)="personId.set($event)"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Camera position</mat-label>
+          <mat-select
+            name="cameraSpot"
+            [ngModel]="cameraSpot()"
+            (ngModelChange)="cameraSpot.set($event)"
+          >
+            <mat-option value="frontal">Frontal</mat-option>
+            <mat-option value="left">Off-axis - left</mat-option>
+            <mat-option value="right">Off-axis - right</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Session number</mat-label>
+          <input
+            matInput
+            type="number"
+            min="1"
+            name="sessionNumber"
+            [ngModel]="sessionNumber()"
+            (ngModelChange)="sessionNumber.set($event)"
+          />
+        </mat-form-field>
+
+        <div class="measurement-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Camera height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="heightM"
+              [ngModel]="heightM()"
+              (ngModelChange)="heightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Seated eye height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="eyeHeightM"
+              [ngModel]="eyeHeightM()"
+              (ngModelChange)="eyeHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera distance</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="distanceM"
+              [ngModel]="distanceM()"
+              (ngModelChange)="distanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera azimuth</mat-label>
+            <input
+              matInput
+              type="number"
+              step="1"
+              name="azimuthDeg"
+              [ngModel]="azimuthDeg()"
+              (ngModelChange)="azimuthDeg.set($event)"
+            />
+            <span matTextSuffix>deg</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera to display centre</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.001"
+              name="screenCentreDistanceM"
+              [ngModel]="screenCentreDistanceM()"
+              (ngModelChange)="screenCentreDistanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Display width (active area)</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.001"
+              name="screenWidthM"
+              [ngModel]="screenWidthM()"
+              (ngModelChange)="screenWidthM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Display centre height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="screenCentreHeightM"
+              [ngModel]="screenCentreHeightM()"
+              (ngModelChange)="screenCentreHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Eye to display distance</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="screenDistanceM"
+              [ngModel]="screenDistanceM()"
+              (ngModelChange)="screenDistanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Away marker offset</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="awayMarkerOffsetM"
+              [ngModel]="awayMarkerOffsetM()"
+              (ngModelChange)="awayMarkerOffsetM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Notes (lighting, glasses, setup)</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            name="notes"
+            [ngModel]="notes()"
+            (ngModelChange)="notes.set($event)"
+          />
+        </mat-form-field>
+
+        <mat-checkbox
+          name="voiceEnabled"
+          [ngModel]="voiceEnabled()"
+          (ngModelChange)="voiceEnabled.set($event)"
+        >
+          Speak the instructions out loud
+        </mat-checkbox>
+      </form>
+
+      <aside class="plan">
+        <h2>What will happen</h2>
+        <ol>
+          @for (pose of script; track pose.id) {
+            <li>
+              <span class="pose-group">{{ pose.group }}</span>
+              {{ pose.instruction }}
+            </li>
+          }
+        </ol>
+        <p class="hint">
+          Each pose: {{ script[0].settleMs / 1000 }} s to get ready (nothing recorded), then a beep,
+          then recording.
+        </p>
+      </aside>
+
+      <button mat-flat-button color="primary" [disabled]="!canStart()" (click)="start()">
+        Start
+      </button>
+    </section>
+  }
+
+  @if (phase() === 'running') {
+    <section class="running">
+      <mat-progress-bar mode="determinate" [value]="progressPercent()"></mat-progress-bar>
+
+      <p class="step-count">Pose {{ poseIndex() + 1 }} of {{ script.length }}</p>
+
+      @if (currentPose(); as pose) {
+        <p class="instruction">{{ pose.instruction }}</p>
+      }
+
+      <div class="status" [class.capturing]="subPhase() === 'capture'">
+        @if (subPhase() === 'settle') {
+          <span class="state">Get into position</span>
+        } @else {
+          <span class="state">RECORDING</span>
+        }
+        <span class="countdown">{{ secondsLeft() }}s</span>
+      </div>
+
+      <p class="face" [class.lost]="!faceVisible()">
+        {{ faceVisible() ? 'Face detected' : 'No face detected' }}
+      </p>
+    </section>
+  }
+
+  @if (phase() === 'done') {
+    <section class="results">
+      <h2>Results</h2>
+      <p>
+        Min / median / max per pose. Compare the "on screen" poses against the "away" poses - your
+        threshold belongs in the gap between them.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Pose</th>
+              <th>Face</th>
+              <th>yaw</th>
+              <th>pitch</th>
+              <th>iris H</th>
+              <th>iris V</th>
+              <th>openness</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of summary(); track row.pose.id) {
+              <tr>
+                <td>
+                  <strong>{{ row.pose.id }}</strong>
+                  <span class="pose-group">{{ row.pose.group }}</span>
+                </td>
+                <td>{{ row.faceFrames }}/{{ row.frames }}</td>
+                <td>
+                  @if (row.yaw) {
+                    {{ row.yaw.min.toFixed(1) }} / <b>{{ row.yaw.median.toFixed(1) }}</b> /
+                    {{ row.yaw.max.toFixed(1) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.pitch) {
+                    {{ row.pitch.min.toFixed(1) }} / <b>{{ row.pitch.median.toFixed(1) }}</b> /
+                    {{ row.pitch.max.toFixed(1) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.irisH) {
+                    {{ row.irisH.min.toFixed(3) }} / <b>{{ row.irisH.median.toFixed(3) }}</b> /
+                    {{ row.irisH.max.toFixed(3) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.irisV) {
+                    {{ row.irisV.min.toFixed(3) }} / <b>{{ row.irisV.median.toFixed(3) }}</b> /
+                    {{ row.irisV.max.toFixed(3) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.openness) {
+                    {{ row.openness.min.toFixed(3) }} / <b>{{ row.openness.median.toFixed(3) }}</b> /
+                    {{ row.openness.max.toFixed(3) }}
+                  } @else {
+                    -
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button mat-flat-button color="primary" (click)="exportCsv()">Download CSV</button>
+        <button mat-stroked-button (click)="again()">Run another session</button>
+      </div>
+
+      <p class="hint">
+        Download the CSV before starting the next session - it is not stored anywhere.
+      </p>
+    </section>
+  }
+
+  @if (phase() === 'failed') {
+    <section class="failed">
+      <h2>Camera or MediaPipe failed</h2>
+      <p>Check camera permissions and reload the page.</p>
+    </section>
+  }
+</main>

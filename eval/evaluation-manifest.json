@@ -1,0 +1,56 @@
+{
+  "primarySessions": [
+    {
+      "participantId": "P1",
+      "condition": "A_frontal",
+      "path": "eval/recordings/P1/frontal.jsonl"
+    },
+    {
+      "participantId": "P1",
+      "condition": "B_offaxis",
+      "path": "eval/recordings/P1/offaxis.jsonl"
+    },
+    {
+      "participantId": "P2",
+      "condition": "A_frontal",
+      "path": "eval/recordings/P2/frontal.jsonl"
+    },
+    {
+      "participantId": "P2",
+      "condition": "B_offaxis",
+      "path": "eval/recordings/P2/offaxis.jsonl"
+    },
+    {
+      "participantId": "P3",
+      "condition": "A_frontal",
+      "path": "eval/recordings/P3/frontal.jsonl"
+    },
+    {
+      "participantId": "P3",
+      "condition": "B_offaxis",
+      "path": "eval/recordings/P3/offaxis.jsonl"
+    },
+    {
+      "participantId": "P4",
+      "condition": "A_frontal",
+      "path": "eval/recordings/P4/frontal.jsonl"
+    },
+    {
+      "participantId": "P4",
+      "condition": "B_offaxis",
+      "path": "eval/recordings/P4/offaxis.jsonl"
+    }
+  ],
+  "heldOutSessions": [
+    {
+      "participantId": "Author",
+      "condition": "A_frontal",
+      "path": "eval/recordings/Author/frontal.jsonl"
+    },
+    {
+      "participantId": "Author",
+      "condition": "B_offaxis",
+      "path": "eval/recordings/Author/offaxis.jsonl"
+    }
+  ]
+}

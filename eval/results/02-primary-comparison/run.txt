@@ -1,0 +1,83 @@
+STEP 02 — REPRODUCIBLE PRIMARY COMPARISON
+
+Repository root:
+  /Users/sandip.sarraf/Haltung
+
+Runtime:
+  Python 3.9.6 (standard library only)
+  Google Chrome 150.0.7871.189 (SVG-to-PNG rendering only)
+
+Commands used for the official evidence:
+  PYTHONPYCACHEPREFIX=/private/tmp/haltung-step02-pycache python3 -m py_compile eval/evaluate_recordings.py eval/test_evaluate_recordings.py
+  PYTHONPYCACHEPREFIX=/private/tmp/haltung-step02-pycache python3 -m unittest discover -s eval -p 'test_*.py' -v
+  PYTHONPYCACHEPREFIX=/private/tmp/haltung-step02-pycache python3 eval/evaluate_recordings.py --output docs/research/participant-evaluation/02-primary-comparison
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1480,940 --screenshot=/Users/sandip.sarraf/Haltung/docs/research/participant-evaluation/02-primary-comparison/primary-comparison.png file:///Users/sandip.sarraf/Haltung/docs/research/participant-evaluation/02-primary-comparison/primary-comparison.svg
+
+Portable analytical equivalent when Python is on PATH:
+  python3 -m unittest discover -s eval -p 'test_*.py' -v
+  python3 eval/evaluate_recordings.py --output /absolute/path/to/chosen/folder
+
+Live reproduction in a chosen folder:
+  STEP02_OUTPUT="/private/tmp/haltung-step02-rerun"
+  PYTHONPYCACHEPREFIX=/private/tmp/haltung-step02-pycache python3 -m unittest discover -s eval -p 'test_*.py' -v
+  PYTHONPYCACHEPREFIX=/private/tmp/haltung-step02-pycache python3 eval/evaluate_recordings.py --output "$STEP02_OUTPUT"
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --no-sandbox --hide-scrollbars --window-size=1480,940 --screenshot="$STEP02_OUTPUT/primary-comparison.png" "file://$STEP02_OUTPUT/primary-comparison.svg"
+
+Compare a live rerun with the frozen analytical outputs:
+  for file in \
+    segment-results.csv \
+    participant-results.csv \
+    summary-results.csv \
+    paired-differences.csv \
+    coverage.csv \
+    calibration-parity.csv \
+    primary-comparison.svg \
+    summary.md
+  do
+    cmp \
+      "docs/research/participant-evaluation/02-primary-comparison/$file" \
+      "$STEP02_OUTPUT/$file" \
+      && echo "$file: IDENTICAL" \
+      || echo "$file: DIFFERENT"
+  done
+
+Verification result:
+  20 tests passed; 0 failed.
+  8 primary sessions evaluated for 4 participants.
+  The held-out Author pair was registered and validated but produced no outcome row.
+  1,232 segment rows: 816 posture and 416 screen-facing.
+  80 participant rows, 20 group-summary rows, and 48 paired-difference rows.
+  240 supporting coverage rows and 8 calibration-parity rows.
+  Independent recalculation matched P2 off-axis Arm-A raw false alarms and misses,
+  a P1 B-minus-A paired difference, and a P1–P4 group median.
+  A fresh temporary run reproduced all six CSVs, the SVG, and summary.md byte-for-byte.
+  The PNG was also byte-identical under the recorded Chrome version.
+
+Method and implementation identity (SHA-256):
+  87c14982b8428cb825f91c87b3f27fffd07bb0026af6fc4933ad360b94c04aa4  docs/research/participant-evaluation/02-primary-comparison/method.md
+  e05866f2d19e549e85201e32c9d788394e06a6663936303df25380d8ff51b171  docs/metric-spec.md
+  acd6dd15d0ff10bd4e116ffc7540476f1987283a848c019d64236735287fb480  frontend/src/app/classifier/posture-metrics.ts
+  2645544429084ed88031e01334f55846e1235d59107ae85e106be62886d55dac  frontend/src/app/classifier/posture-classifier.ts
+  ec0b582f89aada1a56ff112100544b2df91d762b9a9a86065593418195d78677  frontend/src/app/classifier/calibration-profile.ts
+  1b4ac3e11f178958eb9176c9884901ded1437e451d9ad1bb9ae85d74f3bb4a19  frontend/src/app/classifier/head-pose.ts
+  e1bf9e21ae7c37c4ec8c92f13decd47ccfd4de2963d39ab8fa18330041656da2  frontend/src/app/classifier/attention-classifier.ts
+  41394b1f39984ec2c4cf9a3f33313c4175045ef533f46427844302cc5b6c9be9  frontend/src/app/classifier/state-smoother.ts
+  dd683dd760aafcadadbdeda265e0418aed0fc544c05021338c0a5751b153b063  eval/evaluate_recordings.py
+  fe25b31ccdf02e0182a031704bf050872bdb33237c4c40cf40a60c1536120236  eval/test_evaluate_recordings.py
+  d48c7e9d00f0cab4d33eaf1334bd25f7bdfa8551624ddebe7c2ffc9d82fb72cf  eval/evaluation-manifest.json
+  8ceb3ce45a9edcbf4ee1bb9004d9c342350ec51aca71437e510e4dcf4c2fc361  docs/research/participant-evaluation/00-dataset-freeze/file-checksums.txt
+
+Output identity (SHA-256):
+  94878f38f63a8a5b0b5398e30702dd7cd469034c6b1cbd9be61c202bcd29b45b  segment-results.csv
+  2606818a0146fc6b388346740445b327f5953de8de9e72263983e893c8aaf81a  participant-results.csv
+  61e73a7658a0a14161b4e8e6fd19b0d8c4f0141cdeebd9245084e94df752bd2d  summary-results.csv
+  e293597241f43d0561515d33edd7ab14eda844f4e42ded0eb55b57bd32ba4bbe  paired-differences.csv
+  492790fc77c63e25826ceb2cfa33fad70a0e20845c202b515cf3eae0a58b74db  coverage.csv
+  fdfbf1d9a18c5e2463f692b611bb1db616e097eb4dece94fe2577a6c5c412e33  calibration-parity.csv
+  a988e53f53e03d02be28cfb362d797d48e434c28c2a2323f9861b8198cdb8cd2  primary-comparison.svg
+  24ea57d0424d9aee0da3cf2ff24d257ac72151c44e8ce9aa2c48af0f45d8edc0  primary-comparison.png
+  75a9021b4f13a98567264a345157855ca8247a38a1975e82a258a3b908e7ef1e  summary.md
+
+The Python command reads but never modifies the JSONL recordings. The raw files remain ignored and
+are identified by the Step 00 checksums. Generated tables contain participant aliases only and no
+recording date.

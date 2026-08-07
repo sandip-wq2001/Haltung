@@ -1,0 +1,152 @@
+.calibration-page {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1120px;
+  min-height: 100dvh;
+  padding: 32px;
+}
+
+.back-link {
+  margin-left: -12px;
+}
+
+.page-header {
+  margin-top: 32px;
+  max-width: 680px;
+}
+
+.eyebrow {
+  color: var(--mat-sys-primary);
+  font: var(--mat-sys-label-large);
+  margin: 0 0 8px;
+}
+
+h1 {
+  font: var(--mat-sys-headline-large);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.page-header > p:last-child {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-large);
+  line-height: 1.55;
+  margin: 12px 0 0;
+}
+
+.calibration-layout {
+  align-items: start;
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.8fr);
+  margin-top: 40px;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  width: 100%;
+}
+
+.capture-indicator {
+  background: rgb(0 0 0 / 68%);
+  border-radius: 4px;
+  color: #fff;
+  font: var(--mat-sys-label-large);
+  padding: 8px 12px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+}
+
+.calibration-panel {
+  background: var(--mat-sys-surface-container-low);
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-height: 320px;
+  padding: 24px;
+}
+
+.status-label {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-label-large);
+  margin: 0 0 8px;
+}
+
+.status-label.active,
+.status-label.success {
+  color: var(--mat-sys-primary);
+}
+
+.status-label.error {
+  color: var(--mat-sys-error);
+}
+
+h2 {
+  font: var(--mat-sys-title-large);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.guidance {
+  color: var(--mat-sys-on-surface-variant);
+  line-height: 1.55;
+  margin: 12px 0 24px;
+}
+
+mat-progress-bar {
+  margin: 24px 0;
+}
+
+.capture-stats {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 0 28px;
+}
+
+.capture-stats div {
+  min-width: 0;
+}
+
+.capture-stats dt {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-label-medium);
+}
+
+.capture-stats dd {
+  font: var(--mat-sys-title-medium);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 800px) {
+  .calibration-page {
+    padding: 20px;
+  }
+
+  .page-header {
+    margin-top: 24px;
+  }
+
+  .calibration-layout {
+    gap: 20px;
+    grid-template-columns: 1fr;
+    margin-top: 28px;
+  }
+
+  .calibration-panel {
+    min-height: 0;
+  }
+}

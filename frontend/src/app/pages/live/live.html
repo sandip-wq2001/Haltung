@@ -1,0 +1,85 @@
+<main class="live-page">
+  <section class="camera-panel">
+    <video #video class="camera-video" autoplay muted playsinline></video>
+    <canvas #canvas class="camera-overlay"></canvas>
+
+    <div class="telemetry">
+      <div>status: {{ status() }}</div>
+      <div>fps: {{ fps() }}</div>
+      <div>delegate: {{ delegate() ?? '...' }}</div>
+    </div>
+    <div class="metrics-panel">
+      <button type="button" class="focus-toggle" (click)="toggleFocus()">
+        view: {{ focusLabel[focus()] }} &rsaquo;
+      </button>
+
+      @if (focus() === 'headTilt') {
+        @if (tiltLines()?.ear; as ear) {
+          <div><span class="swatch swatch-left"></span>left ear (7): x {{ ear.left.x.toFixed(1) }} y {{ ear.left.y.toFixed(1) }} vis {{ ear.left.visibility.toFixed(2) }}</div>
+          <div><span class="swatch swatch-right"></span>right ear (8): x {{ ear.right.x.toFixed(1) }} y {{ ear.right.y.toFixed(1) }} vis {{ ear.right.visibility.toFixed(2) }}</div>
+          <div>dx (right − left): {{ (ear.right.x - ear.left.x).toFixed(1) }} px</div>
+          <div>dy (right − left): {{ (ear.right.y - ear.left.y).toFixed(1) }} px</div>
+          <div class="headline">head tilt: {{ ear.tiltDeg.toFixed(1) }} deg</div>
+          @if (ear.left.visibility < 0.5 || ear.right.visibility < 0.5) {
+            <div class="warn">an ear is below the 0.5 gate — the full metric block would drop here</div>
+          }
+        } @else {
+          <div>head tilt: no pose</div>
+        }
+      } @else if (focus() === 'tiltLines') {
+        @if (tiltLines(); as lines) {
+          @if (lines.ear; as ear) {
+            <div><span class="swatch swatch-ear"></span>head tilt (ears 7/8): {{ ear.tiltDeg.toFixed(1) }} deg</div>
+          }
+          @if (lines.shoulder; as shoulder) {
+            <div><span class="swatch swatch-shoulder"></span>shoulder tilt (11/12): {{ shoulder.tiltDeg.toFixed(1) }} deg</div>
+            <div>shoulder vis: L {{ shoulder.left.visibility.toFixed(2) }} R {{ shoulder.right.visibility.toFixed(2) }}</div>
+          }
+          @if (lines.rollDiff !== null) {
+            <div class="headline">roll diff (head − shoulder): {{ lines.rollDiff.toFixed(1) }} deg</div>
+            <div class="note">generic bands: within &le; 3, moderate 3–7, large &gt; 7</div>
+          } @else {
+            <div>roll diff: waiting for both lines</div>
+          }
+        } @else {
+          <div>tilt lines: no pose</div>
+        }
+      } @else {
+      <div> generic posture: {{ label(genericPostureState(), 'waiting') }}</div>
+      <div> calibrated posture : {{ label(calibratedPostureState(), 'not calibrated') }} </div>
+      @if (calibratedZ(); as z) {
+        <div>z headTilt: {{ z.headTiltDeg.toFixed(2) }}</div>
+        <div>z shoulderTilt: {{ z.shoulderTiltDeg.toFixed(2) }}</div>
+        <div>z offset: {{ z.headShoulderOffsetRatio.toFixed(2) }}</div>
+        <div>z shoulderWidth: {{ z.shoulderWidthRatio.toFixed(2) }}</div>
+        <div>z earVertical: {{ z.earShoulderVerticalRatio.toFixed(2) }}</div>
+      }
+      <div> generic screen-facing: {{ label(genericAttention(), 'waiting') }}</div>
+      <div> calibrated screen-facing: {{ label(calibratedAttention(), 'not calibrated') }}</div>
+      @if (headPose(); as pose) {
+        <div>yaw: {{ pose.yawDeg.toFixed(1) }} deg</div>
+        <div>pitch: {{ pose.pitchDeg.toFixed(1) }} deg</div>
+        <div>roll: {{ pose.rollDeg.toFixed(1) }} deg</div>
+      }
+      @if (irisGaze(); as iris) {
+        <div>iris gaze H: {{ iris.irisGazeH.toFixed(3) }} (probe / unscored)</div>
+        <div>iris gaze V: {{ iris.irisGazeV.toFixed(3) }} (probe / unscored)</div>
+        <div>eye openness: {{ iris.eyeOpenness.toFixed(3) }} (probe / unscored)</div>
+      } @else {
+        <div>iris gaze: no face</div>
+      }
+      @if (metrics(); as currentMetrics) {
+        <div>ipd: {{ currentMetrics.ipd.toFixed(1) }} px</div>
+        <div>head-shoulder roll diff: {{ currentMetrics.headShoulderRollDiff.toFixed(1) }} deg (generic feature)</div>
+        <div>head tilt: {{ currentMetrics.headTiltDeg.toFixed(1) }} deg</div>
+        <div>shoulder tilt: {{ currentMetrics.shoulderTiltDeg.toFixed(1) }} deg</div>
+        <div>head/shoulder offset: {{ currentMetrics.headShoulderOffsetRatio.toFixed(2) }}</div>
+        <div>shoulder width ratio: {{ currentMetrics.shoulderWidthRatio.toFixed(2) }}</div>
+        <div>ear/shoulder vertical ratio: {{ currentMetrics.earShoulderVerticalRatio.toFixed(2) }}</div>
+      } @else {
+        <div>metrics: waiting for reliable landmarks</div>
+      }
+      }
+    </div>
+  </section>
+</main>

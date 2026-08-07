@@ -1,0 +1,11 @@
+group,participantId,condition,azimuthDeg,totalHeldFrames,effectiveFps,ordinaryEligibleSegments,ordinaryHeldFrames,ordinaryPoseAvailableMeanPct,ordinaryPoseVisibilityPassMeanPct,ordinaryIrisIpdAvailableMeanPct,ordinaryFaceMatrixAvailableMeanPct,ordinaryFullPostureAvailableMeanPct,calibrationFrames,calibrationPoseAvailableFrames,calibrationPoseAvailablePct,calibrationPoseVisibilityPassFrames,calibrationPoseVisibilityPassPct,calibrationPoseVisibilityPassGivenPosePct,calibrationIrisIpdAvailableFrames,calibrationIrisIpdAvailablePct,calibrationFaceMatrixAvailableFrames,calibrationFaceMatrixAvailablePct,calibrationFullPostureAvailableFrames,calibrationFullPostureAvailablePct
+primary,P1,A_frontal,0,7977,29.764925,26,6898,100,100,100,100,100,58,58,100,58,100,100,58,100,58,100,58,100
+primary,P1,B_offaxis,42.23581078897022,7951,29.66791,26,6872,100,100,92.639697,92.639697,92.639697,58,58,100,58,100,100,58,100,58,100,58,100
+primary,P2,A_frontal,0,7994,29.828358,25,6758,100,100,100,100,100,59,59,100,59,100,100,59,100,59,100,59,100
+primary,P2,B_offaxis,52.44222353865176,7979,29.772388,26,6898,100,100,84.403422,84.403422,84.403422,59,59,100,59,100,100,51,86.440678,51,86.440678,51,86.440678
+primary,P3,A_frontal,0,7966,29.723881,26,6922,100,100,100,100,100,59,59,100,59,100,100,59,100,59,100,59,100
+primary,P3,B_offaxis,39.09909778099388,7966,29.723881,26,6888,100,100,96.153846,96.153846,96.153846,58,58,100,58,100,100,58,100,58,100,58,100
+primary,P4,A_frontal,0,8033,29.973881,26,6953,100,100,100,100,100,58,58,100,58,100,100,58,100,58,100,58,100
+primary,P4,B_offaxis,47.26182034420049,7991,29.817164,26,6930,100,100,96.153846,96.153846,96.153846,59,59,100,59,100,100,59,100,59,100,59,100
+held_out,Author,A_frontal,0,8033,29.973881,26,6953,100,100,100,100,100,59,59,100,59,100,100,59,100,59,100,59,100
+held_out,Author,B_offaxis,47.40842865360366,7961,29.705224,26,6881,100,100,90.988938,90.988938,90.988938,59,59,100,59,100,100,59,100,59,100,59,100

@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="940" viewBox="0 0 1480 940" role="img" aria-labelledby="title description">
+<title id="title">Primary generic versus calibrated comparison</title>
+<desc id="description">Participant-level false-alarm and miss rates for posture and screen-facing classification in frontal and off-axis conditions.</desc>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#17202A}.panel-title{font-size:20px;font-weight:700}.tick{font-size:12px;fill:#4B5563}.xlabel{font-size:12px;font-weight:600}.note{font-size:13px;fill:#4B5563}.legend{font-size:13px}</style>
+<text x="50" y="48" font-size="28" font-weight="750">Primary comparison (1.5-second dwell, N=4)</text>
+<text x="50" y="76" class="note">Each dot is one participant; the black diamond is the median and the vertical line is the full P1–P4 range.</text>
+<circle cx="850" cy="67" r="5" fill="#0072B2"/>
+<text x="860" y="72" class="legend">P1</text>
+<circle cx="955" cy="67" r="5" fill="#E69F00"/>
+<text x="965" y="72" class="legend">P2</text>
+<circle cx="1060" cy="67" r="5" fill="#009E73"/>
+<text x="1070" y="72" class="legend">P3</text>
+<circle cx="1165" cy="67" r="5" fill="#CC79A7"/>
+<text x="1175" y="72" class="legend">P4</text>
+<polygon points="1290,61 1296,67 1290,73 1284,67" fill="#111827"/>
+<text x="1302" y="72" class="legend">median</text>
+<rect x="50" y="130" width="680" height="330" rx="10" fill="#FAFBFC" stroke="#D9E0E7"/>
+<text x="70" y="159" class="panel-title">Posture — false-alarm rate</text>
+<line x1="108" y1="392.00" x2="710" y2="392.00" stroke="#E2E8F0"/>
+<text x="99" y="396.00" text-anchor="end" class="tick">0%</text>
+<line x1="108" y1="337.50" x2="710" y2="337.50" stroke="#E2E8F0"/>
+<text x="99" y="341.50" text-anchor="end" class="tick">25%</text>
+<line x1="108" y1="283.00" x2="710" y2="283.00" stroke="#E2E8F0"/>
+<text x="99" y="287.00" text-anchor="end" class="tick">50%</text>
+<line x1="108" y1="228.50" x2="710" y2="228.50" stroke="#E2E8F0"/>
+<text x="99" y="232.50" text-anchor="end" class="tick">75%</text>
+<line x1="108" y1="174.00" x2="710" y2="174.00" stroke="#E2E8F0"/>
+<text x="99" y="178.00" text-anchor="end" class="tick">100%</text>
+<line x1="158.17" y1="182.31" x2="158.17" y2="392.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="153.17" y1="182.31" x2="163.17" y2="182.31" stroke="#111827"/>
+<line x1="153.17" y1="392.00" x2="163.17" y2="392.00" stroke="#111827"/>
+<circle cx="143.17" cy="350.42" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="153.17" cy="313.30" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="163.17" cy="392.00" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="173.17" cy="182.31" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="158.17,324.86 165.17,331.86 158.17,338.86 151.17,331.86" fill="#111827"/>
+<text x="158.17" y="416.00" text-anchor="middle" class="xlabel"><tspan x="158.17">A roll</tspan><tspan x="158.17" dy="16" class="tick">Frontal</tspan></text>
+<line x1="258.50" y1="303.01" x2="258.50" y2="388.62" stroke="#111827" stroke-width="1.5"/>
+<line x1="253.50" y1="303.01" x2="263.50" y2="303.01" stroke="#111827"/>
+<line x1="253.50" y1="388.62" x2="263.50" y2="388.62" stroke="#111827"/>
+<circle cx="243.50" cy="333.88" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="253.50" cy="328.72" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="263.50" cy="303.01" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="273.50" cy="388.62" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="258.50,324.30 265.50,331.30 258.50,338.30 251.50,331.30" fill="#111827"/>
+<text x="258.50" y="416.00" text-anchor="middle" class="xlabel"><tspan x="258.50">B roll</tspan><tspan x="258.50" dy="16" class="tick">Frontal</tspan></text>
+<line x1="358.83" y1="174.78" x2="358.83" y2="288.56" stroke="#111827" stroke-width="1.5"/>
+<line x1="353.83" y1="174.78" x2="363.83" y2="174.78" stroke="#111827"/>
+<line x1="353.83" y1="288.56" x2="363.83" y2="288.56" stroke="#111827"/>
+<circle cx="343.83" cy="174.78" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="353.83" cy="266.19" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="363.83" cy="233.24" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="373.83" cy="288.56" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="358.83,242.71 365.83,249.71 358.83,256.71 351.83,249.71" fill="#111827"/>
+<text x="358.83" y="416.00" text-anchor="middle" class="xlabel"><tspan x="358.83">C full</tspan><tspan x="358.83" dy="16" class="tick">Frontal</tspan></text>
+<line x1="459.17" y1="175.48" x2="459.17" y2="383.69" stroke="#111827" stroke-width="1.5"/>
+<line x1="454.17" y1="175.48" x2="464.17" y2="175.48" stroke="#111827"/>
+<line x1="454.17" y1="383.69" x2="464.17" y2="383.69" stroke="#111827"/>
+<circle cx="444.17" cy="262.67" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="454.17" cy="175.48" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="464.17" cy="383.69" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="474.17" cy="321.53" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="459.17,285.10 466.17,292.10 459.17,299.10 452.17,292.10" fill="#111827"/>
+<text x="459.17" y="416.00" text-anchor="middle" class="xlabel"><tspan x="459.17">A roll</tspan><tspan x="459.17" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="559.50" y1="348.13" x2="559.50" y2="388.30" stroke="#111827" stroke-width="1.5"/>
+<line x1="554.50" y1="348.13" x2="564.50" y2="348.13" stroke="#111827"/>
+<line x1="554.50" y1="388.30" x2="564.50" y2="388.30" stroke="#111827"/>
+<circle cx="544.50" cy="348.13" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="554.50" cy="387.63" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="564.50" cy="388.30" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="574.50" cy="385.70" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="559.50,379.66 566.50,386.66 559.50,393.66 552.50,386.66" fill="#111827"/>
+<text x="559.50" y="416.00" text-anchor="middle" class="xlabel"><tspan x="559.50">B roll</tspan><tspan x="559.50" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="659.83" y1="250.42" x2="659.83" y2="357.72" stroke="#111827" stroke-width="1.5"/>
+<line x1="654.83" y1="250.42" x2="664.83" y2="250.42" stroke="#111827"/>
+<line x1="654.83" y1="357.72" x2="664.83" y2="357.72" stroke="#111827"/>
+<circle cx="644.83" cy="301.62" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="654.83" cy="357.72" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="664.83" cy="250.42" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="674.83" cy="300.26" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="659.83,293.94 666.83,300.94 659.83,307.94 652.83,300.94" fill="#111827"/>
+<text x="659.83" y="416.00" text-anchor="middle" class="xlabel"><tspan x="659.83">C full</tspan><tspan x="659.83" dy="16" class="tick">Off-axis</tspan></text>
+<rect x="750" y="130" width="680" height="330" rx="10" fill="#FAFBFC" stroke="#D9E0E7"/>
+<text x="770" y="159" class="panel-title">Posture — miss rate</text>
+<line x1="808" y1="392.00" x2="1410" y2="392.00" stroke="#E2E8F0"/>
+<text x="799" y="396.00" text-anchor="end" class="tick">0%</text>
+<line x1="808" y1="337.50" x2="1410" y2="337.50" stroke="#E2E8F0"/>
+<text x="799" y="341.50" text-anchor="end" class="tick">25%</text>
+<line x1="808" y1="283.00" x2="1410" y2="283.00" stroke="#E2E8F0"/>
+<text x="799" y="287.00" text-anchor="end" class="tick">50%</text>
+<line x1="808" y1="228.50" x2="1410" y2="228.50" stroke="#E2E8F0"/>
+<text x="799" y="232.50" text-anchor="end" class="tick">75%</text>
+<line x1="808" y1="174.00" x2="1410" y2="174.00" stroke="#E2E8F0"/>
+<text x="799" y="178.00" text-anchor="end" class="tick">100%</text>
+<line x1="858.17" y1="257.85" x2="858.17" y2="341.69" stroke="#111827" stroke-width="1.5"/>
+<line x1="853.17" y1="257.85" x2="863.17" y2="257.85" stroke="#111827"/>
+<line x1="853.17" y1="341.69" x2="863.17" y2="341.69" stroke="#111827"/>
+<circle cx="843.17" cy="291.38" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="853.17" cy="324.92" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="863.17" cy="257.85" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="873.17" cy="341.69" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="858.17,301.15 865.17,308.15 858.17,315.15 851.17,308.15" fill="#111827"/>
+<text x="858.17" y="416.00" text-anchor="middle" class="xlabel"><tspan x="858.17">A roll</tspan><tspan x="858.17" dy="16" class="tick">Frontal</tspan></text>
+<line x1="958.50" y1="291.38" x2="958.50" y2="358.46" stroke="#111827" stroke-width="1.5"/>
+<line x1="953.50" y1="291.38" x2="963.50" y2="291.38" stroke="#111827"/>
+<line x1="953.50" y1="358.46" x2="963.50" y2="358.46" stroke="#111827"/>
+<circle cx="943.50" cy="308.15" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="953.50" cy="319.33" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="963.50" cy="358.46" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="973.50" cy="291.38" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="958.50,306.74 965.50,313.74 958.50,320.74 951.50,313.74" fill="#111827"/>
+<text x="958.50" y="416.00" text-anchor="middle" class="xlabel"><tspan x="958.50">B roll</tspan><tspan x="958.50" dy="16" class="tick">Frontal</tspan></text>
+<line x1="1058.83" y1="375.23" x2="1058.83" y2="392.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="1053.83" y1="375.23" x2="1063.83" y2="375.23" stroke="#111827"/>
+<line x1="1053.83" y1="392.00" x2="1063.83" y2="392.00" stroke="#111827"/>
+<circle cx="1043.83" cy="392.00" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1053.83" cy="379.89" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1063.83" cy="375.23" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1073.83" cy="392.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1058.83,378.94 1065.83,385.94 1058.83,392.94 1051.83,385.94" fill="#111827"/>
+<text x="1058.83" y="416.00" text-anchor="middle" class="xlabel"><tspan x="1058.83">C full</tspan><tspan x="1058.83" dy="16" class="tick">Frontal</tspan></text>
+<line x1="1159.17" y1="267.92" x2="1159.17" y2="330.20" stroke="#111827" stroke-width="1.5"/>
+<line x1="1154.17" y1="267.92" x2="1164.17" y2="267.92" stroke="#111827"/>
+<line x1="1154.17" y1="330.20" x2="1164.17" y2="330.20" stroke="#111827"/>
+<circle cx="1144.17" cy="267.92" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1154.17" cy="330.20" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1164.17" cy="324.92" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1174.17" cy="308.15" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1159.17,309.54 1166.17,316.54 1159.17,323.54 1152.17,316.54" fill="#111827"/>
+<text x="1159.17" y="416.00" text-anchor="middle" class="xlabel"><tspan x="1159.17">A roll</tspan><tspan x="1159.17" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="1259.50" y1="246.76" x2="1259.50" y2="358.46" stroke="#111827" stroke-width="1.5"/>
+<line x1="1254.50" y1="246.76" x2="1264.50" y2="246.76" stroke="#111827"/>
+<line x1="1254.50" y1="358.46" x2="1264.50" y2="358.46" stroke="#111827"/>
+<circle cx="1244.50" cy="252.69" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1254.50" cy="246.76" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1264.50" cy="324.92" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1274.50" cy="358.46" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1259.50,281.81 1266.50,288.81 1259.50,295.81 1252.50,288.81" fill="#111827"/>
+<text x="1259.50" y="416.00" text-anchor="middle" class="xlabel"><tspan x="1259.50">B roll</tspan><tspan x="1259.50" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="1359.83" y1="287.75" x2="1359.83" y2="375.23" stroke="#111827" stroke-width="1.5"/>
+<line x1="1354.83" y1="287.75" x2="1364.83" y2="287.75" stroke="#111827"/>
+<line x1="1354.83" y1="375.23" x2="1364.83" y2="375.23" stroke="#111827"/>
+<circle cx="1344.83" cy="327.75" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1354.83" cy="287.75" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1364.83" cy="375.23" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1374.83" cy="375.23" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1359.83,344.49 1366.83,351.49 1359.83,358.49 1352.83,351.49" fill="#111827"/>
+<text x="1359.83" y="416.00" text-anchor="middle" class="xlabel"><tspan x="1359.83">C full</tspan><tspan x="1359.83" dy="16" class="tick">Off-axis</tspan></text>
+<rect x="50" y="500" width="680" height="330" rx="10" fill="#FAFBFC" stroke="#D9E0E7"/>
+<text x="70" y="529" class="panel-title">Screen-facing — false-alarm rate</text>
+<line x1="108" y1="762.00" x2="710" y2="762.00" stroke="#E2E8F0"/>
+<text x="99" y="766.00" text-anchor="end" class="tick">0%</text>
+<line x1="108" y1="707.50" x2="710" y2="707.50" stroke="#E2E8F0"/>
+<text x="99" y="711.50" text-anchor="end" class="tick">25%</text>
+<line x1="108" y1="653.00" x2="710" y2="653.00" stroke="#E2E8F0"/>
+<text x="99" y="657.00" text-anchor="end" class="tick">50%</text>
+<line x1="108" y1="598.50" x2="710" y2="598.50" stroke="#E2E8F0"/>
+<text x="99" y="602.50" text-anchor="end" class="tick">75%</text>
+<line x1="108" y1="544.00" x2="710" y2="544.00" stroke="#E2E8F0"/>
+<text x="99" y="548.00" text-anchor="end" class="tick">100%</text>
+<line x1="183.25" y1="544.00" x2="183.25" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="178.25" y1="544.00" x2="188.25" y2="544.00" stroke="#111827"/>
+<line x1="178.25" y1="762.00" x2="188.25" y2="762.00" stroke="#111827"/>
+<circle cx="168.25" cy="695.33" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="178.25" cy="544.00" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="188.25" cy="670.52" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="198.25" cy="762.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="183.25,675.93 190.25,682.93 183.25,689.93 176.25,682.93" fill="#111827"/>
+<text x="183.25" y="786.00" text-anchor="middle" class="xlabel"><tspan x="183.25">Generic</tspan><tspan x="183.25" dy="16" class="tick">Frontal</tspan></text>
+<line x1="333.75" y1="680.25" x2="333.75" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="328.75" y1="680.25" x2="338.75" y2="680.25" stroke="#111827"/>
+<line x1="328.75" y1="762.00" x2="338.75" y2="762.00" stroke="#111827"/>
+<circle cx="318.75" cy="762.00" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="328.75" cy="680.25" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="338.75" cy="762.00" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="348.75" cy="762.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="333.75,755.00 340.75,762.00 333.75,769.00 326.75,762.00" fill="#111827"/>
+<text x="333.75" y="786.00" text-anchor="middle" class="xlabel"><tspan x="333.75">Calibrated</tspan><tspan x="333.75" dy="16" class="tick">Frontal</tspan></text>
+<line x1="484.25" y1="571.25" x2="484.25" y2="597.62" stroke="#111827" stroke-width="1.5"/>
+<line x1="479.25" y1="571.25" x2="489.25" y2="571.25" stroke="#111827"/>
+<line x1="479.25" y1="597.62" x2="489.25" y2="597.62" stroke="#111827"/>
+<circle cx="469.25" cy="597.62" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="479.25" cy="571.25" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="489.25" cy="585.08" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="499.25" cy="592.14" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="484.25,581.61 491.25,588.61 484.25,595.61 477.25,588.61" fill="#111827"/>
+<text x="484.25" y="786.00" text-anchor="middle" class="xlabel"><tspan x="484.25">Generic</tspan><tspan x="484.25" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="634.75" y1="671.95" x2="634.75" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="629.75" y1="671.95" x2="639.75" y2="671.95" stroke="#111827"/>
+<line x1="629.75" y1="762.00" x2="639.75" y2="762.00" stroke="#111827"/>
+<circle cx="619.75" cy="707.50" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="629.75" cy="671.95" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="639.75" cy="762.00" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="649.75" cy="734.75" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="634.75,714.12 641.75,721.12 634.75,728.12 627.75,721.12" fill="#111827"/>
+<text x="634.75" y="786.00" text-anchor="middle" class="xlabel"><tspan x="634.75">Calibrated</tspan><tspan x="634.75" dy="16" class="tick">Off-axis</tspan></text>
+<rect x="750" y="500" width="680" height="330" rx="10" fill="#FAFBFC" stroke="#D9E0E7"/>
+<text x="770" y="529" class="panel-title">Screen-facing — miss rate</text>
+<line x1="808" y1="762.00" x2="1410" y2="762.00" stroke="#E2E8F0"/>
+<text x="799" y="766.00" text-anchor="end" class="tick">0%</text>
+<line x1="808" y1="707.50" x2="1410" y2="707.50" stroke="#E2E8F0"/>
+<text x="799" y="711.50" text-anchor="end" class="tick">25%</text>
+<line x1="808" y1="653.00" x2="1410" y2="653.00" stroke="#E2E8F0"/>
+<text x="799" y="657.00" text-anchor="end" class="tick">50%</text>
+<line x1="808" y1="598.50" x2="1410" y2="598.50" stroke="#E2E8F0"/>
+<text x="799" y="602.50" text-anchor="end" class="tick">75%</text>
+<line x1="808" y1="544.00" x2="1410" y2="544.00" stroke="#E2E8F0"/>
+<text x="799" y="548.00" text-anchor="end" class="tick">100%</text>
+<line x1="883.25" y1="718.40" x2="883.25" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="878.25" y1="718.40" x2="888.25" y2="718.40" stroke="#111827"/>
+<line x1="878.25" y1="762.00" x2="888.25" y2="762.00" stroke="#111827"/>
+<circle cx="868.25" cy="738.75" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="878.25" cy="762.00" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="888.25" cy="718.40" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="898.25" cy="762.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="883.25,743.37 890.25,750.37 883.25,757.37 876.25,750.37" fill="#111827"/>
+<text x="883.25" y="786.00" text-anchor="middle" class="xlabel"><tspan x="883.25">Generic</tspan><tspan x="883.25" dy="16" class="tick">Frontal</tspan></text>
+<line x1="1033.75" y1="631.20" x2="1033.75" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="1028.75" y1="631.20" x2="1038.75" y2="631.20" stroke="#111827"/>
+<line x1="1028.75" y1="762.00" x2="1038.75" y2="762.00" stroke="#111827"/>
+<circle cx="1018.75" cy="750.74" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1028.75" cy="762.00" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1038.75" cy="631.20" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1048.75" cy="762.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1033.75,749.37 1040.75,756.37 1033.75,763.37 1026.75,756.37" fill="#111827"/>
+<text x="1033.75" y="786.00" text-anchor="middle" class="xlabel"><tspan x="1033.75">Calibrated</tspan><tspan x="1033.75" dy="16" class="tick">Frontal</tspan></text>
+<line x1="1184.25" y1="718.40" x2="1184.25" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="1179.25" y1="718.40" x2="1189.25" y2="718.40" stroke="#111827"/>
+<line x1="1179.25" y1="762.00" x2="1189.25" y2="762.00" stroke="#111827"/>
+<circle cx="1169.25" cy="718.40" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1179.25" cy="762.00" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1189.25" cy="718.40" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1199.25" cy="718.40" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1184.25,711.40 1191.25,718.40 1184.25,725.40 1177.25,718.40" fill="#111827"/>
+<text x="1184.25" y="786.00" text-anchor="middle" class="xlabel"><tspan x="1184.25">Generic</tspan><tspan x="1184.25" dy="16" class="tick">Off-axis</tspan></text>
+<line x1="1334.75" y1="631.20" x2="1334.75" y2="762.00" stroke="#111827" stroke-width="1.5"/>
+<line x1="1329.75" y1="631.20" x2="1339.75" y2="631.20" stroke="#111827"/>
+<line x1="1329.75" y1="762.00" x2="1339.75" y2="762.00" stroke="#111827"/>
+<circle cx="1319.75" cy="631.20" r="5.5" fill="#0072B2" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1329.75" cy="718.40" r="5.5" fill="#E69F00" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1339.75" cy="718.40" r="5.5" fill="#009E73" stroke="#FFFFFF" stroke-width="1.5"/>
+<circle cx="1349.75" cy="762.00" r="5.5" fill="#CC79A7" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1334.75,711.40 1341.75,718.40 1334.75,725.40 1327.75,718.40" fill="#111827"/>
+<text x="1334.75" y="786.00" text-anchor="middle" class="xlabel"><tspan x="1334.75">Calibrated</tspan><tspan x="1334.75" dy="16" class="tick">Off-axis</tspan></text>
+<text x="50" y="894" class="note">False-alarm rates condition on an explicit normal-segment verdict; missing posture input remains visible in the coverage tables.</text>
+<text x="50" y="918" class="note">Thresholds are frozen engineering values. Scripted instructions are reference labels, not clinical or independently observed ground truth.</text>
+</svg>

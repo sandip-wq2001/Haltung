@@ -1,0 +1,371 @@
+=== primary / P1 / A_frontal ===
+docs/research/recordingSessions/P1_frontal_off-axis/haltung_P1_A_frontal_7727c383-049f-4c62-8d62-0e69b128d5c3.jsonl
+status=PASS problems=0 frames=7977 fps=29.765 azimuth=0.00deg
+problems: none
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=100% attention=100%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=43% attention=43%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P1 / B_offaxis ===
+docs/research/recordingSessions/P1_frontal_off-axis/haltung_P1(redone)_B_offaxis_198f4af0-4f6d-48da-833c-46b339eea8f5.jsonl
+status=COVERAGE_FAIL problems=2 frames=7951 fps=29.668 azimuth=42.24deg
+problems:
+  - segment 'screen_bottom_right' expects attention 'within_screen_band' but only 3% of frames carry a face matrix (need >= 80%)
+  - segment 'tilt_head_right' expects posture 'deviation' but only 6% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=3% attention=3%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=6% attention=6%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=18% attention=18%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P2 / A_frontal ===
+docs/research/recordingSessions/P2_frontal_off-axis/haltung_P2_A_frontal_064d57ef-ccca-4382-9d82-4f64396aad78.jsonl
+status=PASS problems=0 frames=7994 fps=29.828 azimuth=0.00deg
+problems: none
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=100% attention=100%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=34% attention=34%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P2 / B_offaxis ===
+docs/research/recordingSessions/P2_frontal_off-axis/haltung_P2_B_offaxis_817acf70-f3f7-40fc-a45f-66e76c6d11a9.jsonl
+status=COVERAGE_FAIL problems=4 frames=7979 fps=29.772 azimuth=52.44deg
+problems:
+  - segment 'screen_top_right' expects attention 'within_screen_band' but only 0% of frames carry a face matrix (need >= 80%)
+  - segment 'screen_bottom_right' expects attention 'within_screen_band' but only 0% of frames carry a face matrix (need >= 80%)
+  - segment 'tilt_head_right' expects posture 'deviation' but only 0% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+  - segment 'bend_forward' expects posture 'deviation' but only 0% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+segment coverage:
+  baseline_1               posture=96% attention=96%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=0% attention=0%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=0% attention=0%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=0% attention=0%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=0% attention=0%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=99% attention=99%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=0% attention=0%
+  face_lost                posture=0% attention=0%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P3 / A_frontal ===
+docs/research/recordingSessions/P3_off-axis_frontal/haltung_P3(glasses)_A_frontal_0622be61-34fc-416e-a73f-05f148b31adf.jsonl
+status=PASS problems=0 frames=7966 fps=29.724 azimuth=0.00deg
+problems: none
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=100% attention=100%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=34% attention=34%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P3 / B_offaxis ===
+docs/research/recordingSessions/P3_off-axis_frontal/haltung_P3(glasses)_B_offaxis_105ca053-7c22-4621-a2b2-967295aaecd4.jsonl
+status=COVERAGE_FAIL problems=1 frames=7966 fps=29.724 azimuth=39.10deg
+problems:
+  - segment 'tilt_head_right' expects posture 'deviation' but only 0% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=0% attention=0%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=0% attention=0%
+  face_lost                posture=19% attention=19%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P4 / A_frontal ===
+docs/research/recordingSessions/P4_frontal_off-axis/haltung_P4_A_frontal_f01dab3c-c874-4333-80f7-763af290bc71.jsonl
+status=PASS problems=0 frames=8033 fps=29.974 azimuth=0.00deg
+problems: none
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=100% attention=100%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=72% attention=72%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== primary / P4 / B_offaxis ===
+docs/research/recordingSessions/P4_frontal_off-axis/haltung_P4_B_offaxis_6b42c21f-b747-4514-b81d-9b8243ad9f0c.jsonl
+status=COVERAGE_FAIL problems=1 frames=7991 fps=29.817 azimuth=47.26deg
+problems:
+  - segment 'tilt_head_right' expects posture 'deviation' but only 0% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=0% attention=0%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=0% attention=0%
+  face_lost                posture=29% attention=29%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== held_out / Author / A_frontal ===
+docs/research/recordingSessions/Author_off-axis_frontal/haltung_Author_A_frontal_582a9933-eff6-4b97-aece-5bc7fac66c97.jsonl
+status=PASS problems=0 frames=8033 fps=29.974 azimuth=0.00deg
+problems: none
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=100% attention=100%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=100% attention=100%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=100% attention=100%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=100% attention=100%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=100% attention=100%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=100% attention=100%
+  face_lost                posture=29% attention=29%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+
+=== held_out / Author / B_offaxis ===
+docs/research/recordingSessions/Author_off-axis_frontal/haltung_Author_B_offaxis_b0dc842a-1092-4b6b-9774-a7eab22c759f.jsonl
+status=COVERAGE_FAIL problems=3 frames=7961 fps=29.705 azimuth=47.41deg
+problems:
+  - segment 'screen_bottom_right' expects attention 'within_screen_band' but only 0% of frames carry a face matrix (need >= 80%)
+  - segment 'tilt_head_right' expects posture 'deviation' but only 8% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+  - segment 'bend_forward' expects posture 'deviation' but only 78% of frames can produce posture metrics (need >= 80%; pose+iris+visibility>=0.5 are all required)
+segment coverage:
+  baseline_1               posture=100% attention=100%
+  screen_top_left          posture=100% attention=100%
+  screen_top_right         posture=87% attention=87%
+  screen_bottom_left       posture=100% attention=100%
+  screen_bottom_right      posture=0% attention=0%
+  baseline_2               posture=100% attention=100%
+  tilt_head_mild_left      posture=100% attention=100%
+  tilt_head_left           posture=100% attention=100%
+  tilt_head_right          posture=8% attention=8%
+  shoulder_left_down       posture=100% attention=100%
+  shoulder_right_down      posture=100% attention=100%
+  shoulder_left_up         posture=100% attention=100%
+  shoulder_right_up        posture=100% attention=100%
+  lean_whole_body_left     posture=100% attention=100%
+  slump                    posture=100% attention=100%
+  sit_tall                 posture=100% attention=100%
+  head_slide_left          posture=100% attention=100%
+  torso_twist_left         posture=100% attention=100%
+  bend_forward             posture=78% attention=78%
+  bend_backward            posture=100% attention=100%
+  baseline_3               posture=93% attention=93%
+  phone_down               posture=100% attention=100%
+  look_up                  posture=100% attention=100%
+  turn_left                posture=100% attention=100%
+  turn_right               posture=17% attention=17%
+  face_lost                posture=16% attention=16%
+  baseline_4               posture=100% attention=100%
+  lean_close               posture=100% attention=100%
+  lean_back                posture=100% attention=100%
+  absent                   posture=0% attention=0%
+

@@ -1,0 +1,65 @@
+<main class="page-shell">
+  <header class="page-header">
+    <p class="eyebrow">Local posture and attention monitor</p>
+    <h1>Haltung</h1>
+    <p class="intro">
+      Check posture and screen attention through your webcam. Processing stays on this computer and
+      no video is stored.
+    </p>
+  </header>
+
+  <section class="actions" aria-label="Application areas">
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Live monitoring</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>View the camera feed, landmark quality, and current generic or calibrated results.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button routerLink="/live">Open live view</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Calibration</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Capture a 30-second personal baseline for your normal desk position.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button routerLink="/calibration">Start calibration</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Session recording</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Run the structured evaluation script and export its landmark recording.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-flat-button routerLink="/record">Set up recording</a>
+      </mat-card-actions>
+    </mat-card>
+  </section>
+
+  @if (health$ | async; as health) {
+    <footer class="backend-status" [class.backend-error]="health.kind === 'error'">
+      <span class="status-dot" aria-hidden="true"></span>
+      @switch (health.kind) {
+        @case ('loading') {
+          <span>Checking local backend</span>
+        }
+        @case ('success') {
+          <span>Local backend connected</span>
+        }
+        @case ('error') {
+          <span>Local backend unavailable. Calibration will remain in this browser.</span>
+        }
+      }
+    </footer>
+  }
+</main>

@@ -1,0 +1,84 @@
+<main class="calibration-page">
+  <a mat-button routerLink="/" class="back-link">Back to home</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Personal baseline</p>
+    <h1>Calibration</h1>
+    <p>Use your normal desk setup and sit in a comfortable position you consider good.</p>
+  </header>
+
+  <section class="calibration-layout">
+    <div class="video-frame">
+      <video #video autoplay muted playsinline></video>
+      @if (calibrationStatus() === 'countdown') {
+        <div class="capture-indicator">Starting in {{ secondsRemaining() }} s</div>
+      } @else if (calibrationStatus() === 'capturing') {
+        <div class="capture-indicator">{{ secondsRemaining() }} s remaining</div>
+      }
+    </div>
+
+    <section class="calibration-panel" aria-live="polite">
+      @switch (calibrationStatus()) {
+        @case ('idle') {
+          <p class="status-label">Ready to calibrate</p>
+          <h2>Sit naturally</h2>
+          <p class="guidance">
+            Look at the screen you normally work on. You do not need to hold perfectly still.
+          </p>
+        }
+        @case ('starting') {
+          <p class="status-label">Starting camera</p>
+          <h2>Preparing capture</h2>
+          <p class="guidance">Keep your face and shoulders visible while the models load.</p>
+        }
+        @case ('countdown') {
+          <p class="status-label active">Get ready</p>
+          <h2>Starting in {{ secondsRemaining() }} seconds</h2>
+          <p class="guidance">Settle into your normal position and look at your screen.</p>
+        }
+        @case ('capturing') {
+          <p class="status-label active">Capturing baseline</p>
+          <h2>Keep your normal position</h2>
+          <p class="guidance">Relax and breathe as usual while looking at your screen.</p>
+          <mat-progress-bar mode="determinate" [value]="((30 - secondsRemaining()) / 30) * 100" />
+          <dl class="capture-stats">
+            <div>
+              <dt>Time remaining</dt>
+              <dd>{{ secondsRemaining() }} s</dd>
+            </div>
+            <div>
+              <dt>Posture samples</dt>
+              <dd>{{ samples().length }}</dd>
+            </div>
+          </dl>
+        }
+        @case ('done') {
+          <p class="status-label success">Complete</p>
+          <h2>Calibration saved</h2>
+          <p class="guidance">Your personal posture and screen-direction baselines are ready.</p>
+          <a mat-flat-button routerLink="/live">Open live view</a>
+        }
+        @case ('failed') {
+          <p class="status-label error">Calibration failed</p>
+          <h2>Not enough reliable samples</h2>
+          <p class="guidance">Keep your face and shoulders visible, then try again.</p>
+        }
+      }
+
+      @if (calibrationStatus() !== 'done') {
+        <button
+          mat-flat-button
+          type="button"
+          (click)="startCalibration()"
+          [disabled]="
+            calibrationStatus() === 'starting' ||
+            calibrationStatus() === 'countdown' ||
+            calibrationStatus() === 'capturing'
+          "
+        >
+          {{ calibrationStatus() === 'failed' ? 'Try again' : 'Start 30-second calibration' }}
+        </button>
+      }
+    </section>
+  </section>
+</main>

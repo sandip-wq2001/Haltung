@@ -1,0 +1,361 @@
+<main class="posture-page">
+  <a mat-button routerLink="/" class="back-link">Back to home</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Posture instrument (author-side)</p>
+    <h1>Posture threshold finding</h1>
+    <p>
+      Records <b>all seven</b> posture metrics: head tilt, shoulder tilt, their difference, IPD, and
+      the three IPD-normalized ratios. The app speaks each pose, waits while you get into it, then
+      records only the held pose. Run the same script from each camera position and keep your posture
+      the same — any change in the numbers is then caused by the camera, not by you.
+    </p>
+  </header>
+
+  <video #video class="preview" playsinline muted [class.hidden]="phase() !== 'running'"></video>
+
+  @if (phase() === 'setup') {
+    <section class="setup">
+      <form class="setup-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Person</mat-label>
+          <input
+            matInput
+            required
+            autocomplete="off"
+            name="personId"
+            [ngModel]="personId()"
+            (ngModelChange)="personId.set($event)"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Camera position</mat-label>
+          <mat-select
+            name="cameraSpot"
+            [ngModel]="cameraSpot()"
+            (ngModelChange)="cameraSpot.set($event)"
+          >
+            <mat-option value="frontal">Frontal</mat-option>
+            <mat-option value="left">Off-axis - left</mat-option>
+            <mat-option value="right">Off-axis - right</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Session number</mat-label>
+          <input
+            matInput
+            type="number"
+            min="1"
+            name="sessionNumber"
+            [ngModel]="sessionNumber()"
+            (ngModelChange)="sessionNumber.set($event)"
+          />
+        </mat-form-field>
+
+        <div class="measurement-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Camera height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="cameraHeightM"
+              [ngModel]="cameraHeightM()"
+              (ngModelChange)="cameraHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Seated eye height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="eyeHeightM"
+              [ngModel]="eyeHeightM()"
+              (ngModelChange)="eyeHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Eye to camera distance</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="eyeToCameraM"
+              [ngModel]="eyeToCameraM()"
+              (ngModelChange)="eyeToCameraM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Eye to monitor centre</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="eyeToMonitorM"
+              [ngModel]="eyeToMonitorM()"
+              (ngModelChange)="eyeToMonitorM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera to monitor centre</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="cameraToMonitorM"
+              [ngModel]="cameraToMonitorM()"
+              (ngModelChange)="cameraToMonitorM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Lid angle</mat-label>
+            <input
+              matInput
+              type="number"
+              step="1"
+              name="lidAngleDeg"
+              [ngModel]="lidAngleDeg()"
+              (ngModelChange)="lidAngleDeg.set($event)"
+            />
+            <span matTextSuffix>deg</span>
+          </mat-form-field>
+        </div>
+
+        <p class="hint">
+          Azimuth is not measured directly - tape the three straight-line distances (eye to camera, eye
+          to monitor centre, camera to monitor centre) and it is derived by the law of cosines, same
+          technique as the study recorder.
+        </p>
+
+        @if (derivedAzimuthDeg() !== null) {
+          <p class="hint"><b>Derived azimuth: {{ derivedAzimuthDeg()!.toFixed(1) }}&deg;</b></p>
+        }
+
+        <mat-form-field appearance="outline">
+          <mat-label>Notes (chair, desk, lighting, tape marks)</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            name="notes"
+            [ngModel]="notes()"
+            (ngModelChange)="notes.set($event)"
+          />
+        </mat-form-field>
+
+        <mat-checkbox
+          name="voiceEnabled"
+          [ngModel]="voiceEnabled()"
+          (ngModelChange)="voiceEnabled.set($event)"
+        >
+          Speak the instructions out loud
+        </mat-checkbox>
+      </form>
+
+      <aside class="plan">
+        <h2>What will happen</h2>
+        <ol>
+          @for (pose of script; track pose.id) {
+            <li>
+              <span class="pose-group">{{ pose.group }}</span>
+              {{ pose.instruction }}
+            </li>
+          }
+        </ol>
+        <p class="hint">
+          Each pose: {{ script[0].settleMs / 1000 }} s to get ready (nothing recorded), then a beep,
+          then recording.
+        </p>
+        <p class="hint">
+          Do not adjust your seat, chair height, or desk between sessions. Only the camera moves.
+        </p>
+        <p class="hint">
+          Set the laptop lid to the same angle (~100&deg;) and the same distance in every session.
+          Only the camera position changes between sessions.
+        </p>
+      </aside>
+
+      @if (spotMismatch(); as warning) {
+        <p class="spot-warning">{{ warning }}</p>
+      }
+
+      <button mat-flat-button color="primary" [disabled]="!canStart()" (click)="start()">
+        Start
+      </button>
+
+      @if (!canStart()) {
+        <p class="hint">
+          Fill the person and all five setup measurements before starting. They cannot be recovered
+          after the session.
+        </p>
+      }
+    </section>
+  }
+
+  @if (phase() === 'running') {
+    <section class="running">
+      <mat-progress-bar mode="determinate" [value]="progressPercent()"></mat-progress-bar>
+
+      <p class="step-count">Pose {{ poseIndex() + 1 }} of {{ script.length }}</p>
+
+      @if (currentPose(); as pose) {
+        <p class="instruction">{{ pose.instruction }}</p>
+      }
+
+      <div class="status" [class.capturing]="subPhase() === 'capture'">
+        @if (subPhase() === 'settle') {
+          <span class="state">Get into position</span>
+        } @else {
+          <span class="state">RECORDING</span>
+        }
+        <span class="countdown">{{ secondsLeft() }}s</span>
+      </div>
+
+      <div class="live-readout">
+        <span>head {{ liveHeadTilt() === null ? '-' : liveHeadTilt()!.toFixed(1) }}&deg;</span>
+        <span>
+          shoulder {{ liveShoulderTilt() === null ? '-' : liveShoulderTilt()!.toFixed(1) }}&deg;
+        </span>
+        <span class="diff">
+          diff {{ liveRollDiff() === null ? '-' : liveRollDiff()!.toFixed(1) }}&deg;
+        </span>
+      </div>
+
+      <p class="face" [class.lost]="!poseVisible()">
+        {{ poseVisible() ? 'Ears and shoulders detected' : 'Ears or shoulders not detected' }}
+      </p>
+    </section>
+  }
+
+  @if (phase() === 'done') {
+    <section class="results">
+      <h2>Results</h2>
+      <p>
+        Min / median / max per pose, in degrees. The row that matters most is <b>rest</b>: compare its
+        medians against the same row from your other camera positions. That difference is what a
+        fixed generic threshold would have to absorb.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Pose</th>
+              <th>Frames (7-metric / tilt / total)</th>
+              <th>head tilt</th>
+              <th>shoulder tilt</th>
+              <th>roll diff</th>
+              <th>ipd (px)</th>
+              <th>offset ratio</th>
+              <th>width ratio</th>
+              <th>vertical ratio</th>
+              <th>min vis</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of summary(); track row.pose.id) {
+              <tr>
+                <td>
+                  <strong>{{ row.pose.id }}</strong>
+                  <span class="pose-group">{{ row.pose.group }}</span>
+                </td>
+                <td>{{ row.metricFrames }}/{{ row.poseFrames }}/{{ row.frames }}</td>
+                <td>
+                  @if (row.headTilt) {
+                    {{ row.headTilt.min.toFixed(1) }} / <b>{{ row.headTilt.median.toFixed(1) }}</b> /
+                    {{ row.headTilt.max.toFixed(1) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.shoulderTilt) {
+                    {{ row.shoulderTilt.min.toFixed(1) }} /
+                    <b>{{ row.shoulderTilt.median.toFixed(1) }}</b> /
+                    {{ row.shoulderTilt.max.toFixed(1) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.rollDiff) {
+                    {{ row.rollDiff.min.toFixed(1) }} / <b>{{ row.rollDiff.median.toFixed(1) }}</b> /
+                    {{ row.rollDiff.max.toFixed(1) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.ipd) {
+                    {{ row.ipd.min.toFixed(0) }} / <b>{{ row.ipd.median.toFixed(0) }}</b> /
+                    {{ row.ipd.max.toFixed(0) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.headShoulderOffsetRatio) {
+                    {{ row.headShoulderOffsetRatio.min.toFixed(2) }} /
+                    <b>{{ row.headShoulderOffsetRatio.median.toFixed(2) }}</b> /
+                    {{ row.headShoulderOffsetRatio.max.toFixed(2) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.shoulderWidthRatio) {
+                    {{ row.shoulderWidthRatio.min.toFixed(2) }} /
+                    <b>{{ row.shoulderWidthRatio.median.toFixed(2) }}</b> /
+                    {{ row.shoulderWidthRatio.max.toFixed(2) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  @if (row.earShoulderVerticalRatio) {
+                    {{ row.earShoulderVerticalRatio.min.toFixed(2) }} /
+                    <b>{{ row.earShoulderVerticalRatio.median.toFixed(2) }}</b> /
+                    {{ row.earShoulderVerticalRatio.max.toFixed(2) }}
+                  } @else {
+                    -
+                  }
+                </td>
+                <td>
+                  {{ row.minVisibility === null ? '-' : row.minVisibility.toFixed(2) }}
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button mat-flat-button color="primary" (click)="exportCsv()">Download CSV</button>
+        <button mat-stroked-button (click)="again()">Run another session</button>
+      </div>
+
+      <p class="hint">
+        Download the CSV before starting the next session - it is not stored anywhere.
+      </p>
+    </section>
+  }
+
+  @if (phase() === 'failed') {
+    <section class="failed">
+      <h2>Camera or MediaPipe failed</h2>
+      <p>Check camera permissions and reload the page.</p>
+    </section>
+  }
+</main>

@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.claude/
+
+# Private thesis, research, and development material
+/docs/
+/archive/
+/AGENTS.md
+/AI_CONTEXT.md
+/CLAUDE.md
+/DECISIONS.md
+/LEARNINGS.md
+/PROJECT_PLAN.md
+/STATE.md
+/ai-usage-log.md
+/frontend/LEARNINGS.md
+
+# Angular
+frontend/.angular/cache/
+frontend/dist/
+frontend/node_modules/
+.pnpm-store/
+
+# Backend (Kotlin / Maven)
+backend/target/
+
+# Runtime data
+backend/data/
+
+# Participant recordings — HUMAN-SUBJECT DATA.
+# Landmark streams of named participants are identifiable personal data even though no video is
+# stored. They must never enter git history: once committed, a later `git rm` does not remove them.
+# Recordings live on disk and are covered by the consent form's retention terms, not by the repo.
+*.jsonl
+eval/recordings/
+
+# Evaluation harness (Python, Phase 7)
+eval/.venv/
+eval/**/__pycache__/
+eval/**/*.py[cod]
+eval/plots/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Office temporary files
+~$*

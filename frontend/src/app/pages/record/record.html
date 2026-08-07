@@ -1,0 +1,371 @@
+<main class="record-page">
+  <a mat-button routerLink="/" class="back-link">Back to home</a>
+
+  <header class="page-header">
+    <p class="eyebrow">Evaluation instrument</p>
+    <h1>Session recording</h1>
+    <p>Set up the measured camera geometry, calibrate, then follow the timed script.</p>
+  </header>
+
+  @if (phase() === 'setup') {
+    <section class="setup-layout">
+      <form class="setup-form">
+        <mat-form-field appearance="outline">
+          <mat-label>Participant ID</mat-label>
+          <input
+            matInput
+            required
+            autocomplete="off"
+            name="participantId"
+            [ngModel]="participantId()"
+            (ngModelChange)="participantId.set($event)"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Camera condition</mat-label>
+          <mat-select
+            name="condition"
+            [ngModel]="condition()"
+            (ngModelChange)="condition.set($event)"
+          >
+            <mat-option value="A_frontal">A - camera frontal</mat-option>
+            <mat-option value="B_offaxis">B - camera off-axis</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="measurement-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Camera height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="heightM"
+              [ngModel]="heightM()"
+              (ngModelChange)="heightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Seated eye height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="eyeHeightM"
+              [ngModel]="eyeHeightM()"
+              (ngModelChange)="eyeHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera distance</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="distanceM"
+              [ngModel]="distanceM()"
+              (ngModelChange)="distanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Derived camera azimuth</mat-label>
+            <input
+              matInput
+              readonly
+              [value]="derivedAzimuthDeg() === null ? '' : derivedAzimuthDeg()!.toFixed(1)"
+            />
+            <span matTextSuffix>deg</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Camera to display centre</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.001"
+              name="screenCentreDistanceM"
+              [ngModel]="screenCentreDistanceM()"
+              (ngModelChange)="screenCentreDistanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Display width (active area)</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.001"
+              name="screenWidthM"
+              [ngModel]="screenWidthM()"
+              (ngModelChange)="screenWidthM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Display height (active area)</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.001"
+              name="screenHeightM"
+              [ngModel]="screenHeightM()"
+              (ngModelChange)="screenHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Display centre height</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="screenCentreHeightM"
+              [ngModel]="screenCentreHeightM()"
+              (ngModelChange)="screenCentreHeightM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Eye to display distance</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="screenDistanceM"
+              [ngModel]="screenDistanceM()"
+              (ngModelChange)="screenDistanceM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Away marker offset (all three)</mat-label>
+            <input
+              matInput
+              type="number"
+              step="0.01"
+              name="awayMarkerOffsetM"
+              [ngModel]="awayMarkerOffsetM()"
+              (ngModelChange)="awayMarkerOffsetM.set($event)"
+            />
+            <span matTextSuffix>m</span>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Notes</mat-label>
+          <textarea
+            matInput
+            rows="3"
+            name="notes"
+            [ngModel]="notes()"
+            (ngModelChange)="notes.set($event)"
+          ></textarea>
+        </mat-form-field>
+
+        <mat-checkbox
+          name="voiceEnabled"
+          [ngModel]="voiceEnabled()"
+          (ngModelChange)="voiceEnabled.set($event)"
+        >
+          Speak each instruction aloud
+        </mat-checkbox>
+      </form>
+
+      <aside class="setup-note">
+        <h2>Before calibration</h2>
+        <p>Measure every distance with a tape; azimuth is derived automatically.</p>
+        <dl>
+          <div>
+            <dt>Camera height</dt>
+            <dd>Floor to camera lens</dd>
+          </div>
+          <div>
+            <dt>Eye height</dt>
+            <dd>Floor to participant's eyes while seated</dd>
+          </div>
+          <div>
+            <dt>Distance</dt>
+            <dd>Camera lens to participant's face</dd>
+          </div>
+          <div>
+            <dt>Camera to display centre</dt>
+            <dd>Lens to the middle of the screen — the third side that fixes the azimuth</dd>
+          </div>
+          <div>
+            <dt>Display width</dt>
+            <dd>Active area only, bezel excluded — it sets the required head yaw</dd>
+          </div>
+          <div>
+            <dt>Display height</dt>
+            <dd>Active area only, bezel excluded — it sets the required upward head pitch</dd>
+          </div>
+          <div>
+            <dt>Display centre height</dt>
+            <dd>Floor to the vertical middle of the display</dd>
+          </div>
+          <div>
+            <dt>Eye to display</dt>
+            <dd>Not the same as camera distance — measure both</dd>
+          </div>
+          <div>
+            <dt>Away markers</dt>
+            <dd>
+              One beyond each left/right edge at display-centre height, and one above the top edge
+              at the horizontal centre; use the measured offset for all three
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    @if (setupError(); as error) {
+      <p class="hint">{{ error }}</p>
+    }
+
+    <button mat-flat-button type="button" (click)="startCalibration()" [disabled]="!canCalibrate()">
+      Start 30-second calibration
+    </button>
+  }
+
+  @if (phase() === 'preparing') {
+    <section class="phase-panel">
+      <p class="status-label">Prepare for calibration</p>
+      <h2>Starting in {{ preparationSecondsRemaining() }} s</h2>
+      <p>
+        Settle into your normal working position, keep your full head and shoulders visible, and
+        look at the screen.
+      </p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="((5 - preparationSecondsRemaining()) / 5) * 100"
+      />
+    </section>
+  }
+
+  @if (phase() === 'calibrating') {
+    <section class="phase-panel">
+      <p class="status-label">Capturing baseline</p>
+      <h2>Calibration - {{ calibrationSecondsRemaining() }} s remaining</h2>
+      <p>Sit normally and look at the screen you work on. Breathe and relax; do not freeze.</p>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="((30 - calibrationSecondsRemaining()) / 30) * 100"
+      />
+    </section>
+  }
+
+  @if (phase() === 'ready') {
+    <section class="phase-panel">
+      <p class="status-label">Ready</p>
+      <h2>Calibration saved</h2>
+      <p>
+        Each instruction is spoken aloud as it begins (uncheck "Speak each instruction" to read them
+        yourself). The recording stops itself after {{ scriptDurationMs / 1000 }} seconds.
+      </p>
+      <button mat-flat-button type="button" (click)="startRecording()">Start recording</button>
+    </section>
+  }
+
+  @if (phase() === 'recording') {
+    <section class="recording-state">
+      <p class="status-label">Recording</p>
+      <h2 class="instruction">{{ currentSegment()?.instruction }}</h2>
+      <p class="countdown">Next instruction in {{ secondsToNext() }} s</p>
+      <dl class="recording-diagnostics">
+        <div>
+          <dt>Segment</dt>
+          <dd>{{ currentSegment()?.id }}</dd>
+        </div>
+        <div>
+          <dt>Frames</dt>
+          <dd>{{ frameCount() }}</dd>
+        </div>
+        <div>
+          <dt>Person detected</dt>
+          <dd>{{ personDetected() ? 'Yes' : 'No' }}</dd>
+        </div>
+      </dl>
+    </section>
+  }
+
+  @if (phase() === 'review') {
+    <section class="review-section">
+      <h2>Compliance review</h2>
+      <p>
+        Record what the participant actually did. Mark anything that did not fully match the
+        instruction.
+      </p>
+
+      <button mat-stroked-button type="button" (click)="markAllCompliant()">
+        Mark all as “Did it”
+      </button>
+      <p class="form-note">Then change only the poses that were partial or not completed.</p>
+
+      <div class="compliance-list">
+        @for (segment of script; track segment.id) {
+          <mat-form-field appearance="outline">
+            <mat-label>{{ segment.instruction }}</mat-label>
+            <mat-select
+              [ngModel]="compliance()[segment.id]"
+              (ngModelChange)="setCompliance(segment.id, $event)"
+              [name]="'compliance_' + segment.id"
+            >
+              <mat-option [value]="undefined" disabled>Choose observation</mat-option>
+              <mat-option value="yes">Did it</mat-option>
+              <mat-option value="partial">Partly</mat-option>
+              <mat-option value="no">Did not do it</mat-option>
+            </mat-select>
+          </mat-form-field>
+        }
+      </div>
+
+      <button mat-flat-button type="button" (click)="exportRecording()" [disabled]="!canSave()">
+        Save recording
+      </button>
+
+      @if (!canSave()) {
+        <p class="form-note">Judge every segment before saving.</p>
+      }
+    </section>
+  }
+
+  @if (phase() === 'done') {
+    <section class="phase-panel">
+      <p class="status-label">Complete</p>
+      <h2>Recording downloaded</h2>
+      <p>{{ frameCount() }} session frames were recorded.</p>
+      <p>Verify the file with <code>node eval/verify-recording.mjs &lt;file&gt;</code>.</p>
+      <a mat-button routerLink="/">Back to home</a>
+    </section>
+  }
+
+  @if (phase() === 'failed') {
+    <section class="phase-panel error-panel">
+      <p class="status-label">Failed</p>
+      <h2>Capture could not continue</h2>
+      <p>Keep the face and shoulders visible, then reload the page and try again.</p>
+    </section>
+  }
+
+  <video
+    #video
+    autoplay
+    muted
+    playsinline
+    [hidden]="
+      phase() === 'setup' || phase() === 'recording' || phase() === 'review' || phase() === 'done'
+    "
+  ></video>
+</main>

@@ -1,0 +1,53 @@
+Working directory:
+  /Users/sandip.sarraf/Haltung
+
+Executed command:
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node eval/freeze-dataset.mjs
+
+Portable equivalent when Node.js is on PATH:
+  node eval/freeze-dataset.mjs
+
+Runtime:
+  Node.js v24.14.0
+
+Frozen inputs:
+  9481195f4a824436986be286e17e5bbc7087c98dd72a5a3411f8490b5c06b2a8  eval/freeze-dataset.mjs
+  d05e74576e340cba94f9ae263a0ccc8608d8c23698933c3e1db790fe3994b3e6  eval/freeze-dataset.test.mjs
+  36acf1531a73f44392842ee252ec31e285d775bd91e7b0adb5d038ae8be8e4d9  eval/verify-recording.mjs
+  1fe702146497961fca7b26d833e869dba2b0b894af924985ca5603243239d027  eval/canonical-script.mjs
+  d48c7e9d00f0cab4d33eaf1334bd25f7bdfa8551624ddebe7c2ffc9d82fb72cf  eval/evaluation-manifest.json
+  df655a93e90dde06ac5d09c13bcb02eca84a9a42f5959a574cfcf250d84542e3  eval/evaluate_recordings.py
+  2aad1a96373683be1cb709820f5586ec573d0cfc732edc68c2a19cecff158de4  eval/README.md
+
+Console result:
+  froze 10 final sessions (4 excluded recordings)
+  PASS: 5
+  COVERAGE_FAIL: 5
+  FAIL: 0
+  wrote Step 00 evidence to docs/research/participant-evaluation/00-dataset-freeze
+
+Generated evidence:
+  docs/research/participant-evaluation/00-dataset-freeze/session-inventory.csv
+  docs/research/participant-evaluation/00-dataset-freeze/verifier-results.csv
+  docs/research/participant-evaluation/00-dataset-freeze/verifier-results.json
+  docs/research/participant-evaluation/00-dataset-freeze/verifier-output.txt
+  docs/research/participant-evaluation/00-dataset-freeze/segment-coverage.csv
+  docs/research/participant-evaluation/00-dataset-freeze/excluded-recordings.csv
+  docs/research/participant-evaluation/00-dataset-freeze/file-checksums.txt
+
+Validation commands:
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --check eval/freeze-dataset.mjs
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test eval/freeze-dataset.test.mjs
+  /Users/sandip.sarraf/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test eval/verify-recording.test.mjs
+  (from /Users/sandip.sarraf/Haltung/eval) python3 -m unittest test_evaluate_recordings.py
+  shasum -a 256 -c docs/research/participant-evaluation/00-dataset-freeze/file-checksums.txt
+
+Validation result:
+  Freeze script syntax: PASS
+  Freeze disposition tests: 3 passed, 0 failed
+  Independent verifier tests: 24 passed, 0 failed
+  Evaluator tests, including cohort separation: 12 passed, 0 failed
+  Final recording checksums: 10 matched, 0 mismatched
+
+The command reads but does not modify the raw JSONL recordings. Recording identity is frozen by
+SHA-256 in file-checksums.txt. No wall-clock recording date is emitted.
